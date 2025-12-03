@@ -1,0 +1,411 @@
+/* Timer Container Styles */
+.timer-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.timer-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Style Toggle Buttons */
+.countdown-style-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.style-btn {
+    padding: 8px 20px;
+    border: 2px solid var(--accent-color);
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.style-btn:hover {
+    background: rgba(0, 206, 209, 0.2);
+    transform: scale(1.05);
+}
+
+.style-btn.active {
+    background: var(--accent-color);
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+[data-theme='light'] .style-btn {
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+}
+
+[data-theme='light'] .style-btn.active {
+    color: #000;
+}
+
+/* Timer Display */
+.timer-display {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 0.1em;
+    margin: 20px 0;
+}
+
+body.dark .timer-display {
+    color: #00CED1;
+    text-shadow:
+        0 0 20px rgba(0, 206, 209, 0.8),
+        0 0 40px rgba(0, 206, 209, 0.5);
+}
+
+/* Timer Inputs */
+.timer-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.timer-inputs input {
+    width: 80px;
+    padding: 15px;
+    font-size: 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Orbitron', monospace;
+}
+
+.timer-inputs input:focus {
+    outline: none;
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.timer-inputs span {
+    font-size: 2rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+[data-theme='light'] .timer-inputs input {
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+/* Timer Controls */
+.timer-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.control-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.control-btn.start {
+    background: linear-gradient(135deg, #00ff88, #00cc66);
+    color: #000;
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.control-btn.start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5);
+}
+
+.control-btn.stop {
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+}
+
+.control-btn.stop:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+}
+
+.control-btn.reset {
+    background: linear-gradient(135deg, #888, #555);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(136, 136, 136, 0.3);
+}
+
+.control-btn.reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(136, 136, 136, 0.5);
+}
+
+/* ============================================ */
+/* VINTAGE FILM COUNTDOWN STYLES */
+/* ============================================ */
+
+.vintage-film-countdown {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.8),
+        0 0 50px rgba(0, 0, 0, 0.5);
+    animation: filmFlicker 0.1s infinite;
+    margin: 0 auto;
+    /* Ensure horizontal centering */
+}
+
+/* Film Flicker Effect */
+@keyframes filmFlicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.97;
+    }
+}
+
+/* Crosshairs */
+.film-crosshair {
+    position: absolute;
+    background: #fff;
+    opacity: 0.9;
+    z-index: 5;
+}
+
+.film-crosshair.vertical {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.film-crosshair.horizontal {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Concentric Circles */
+.film-circle-outer,
+.film-circle-middle,
+.film-circle-inner {
+    position: absolute;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.film-circle-outer {
+    width: 90%;
+    height: 90%;
+    border-width: 4px;
+}
+
+.film-circle-middle {
+    width: 70%;
+    height: 70%;
+    border-width: 3px;
+    opacity: 0.8;
+}
+
+.film-circle-inner {
+    width: 50%;
+    height: 50%;
+    border-width: 2px;
+    opacity: 0.6;
+}
+
+/* Rotating Sweep Line */
+.film-sweep-line {
+    position: absolute;
+    width: 2px;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+    top: 50%;
+    left: 50%;
+    transform-origin: top center;
+    transform: translateX(-50%) rotate(0deg);
+    animation: sweepRotate 2s linear infinite;
+    z-index: 3;
+}
+
+@keyframes sweepRotate {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* Corner Markers */
+.film-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    z-index: 6;
+}
+
+.film-corner.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.film-corner.top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.film-corner.bottom-left {
+    bottom: 20px;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px);
+    opacity: 0.5;
+    z-index: 8;
+    animation: grainMove 0.5s steps(10) infinite;
+    pointer-events: none;
+}
+
+@keyframes grainMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-5%, -5%);
+    }
+
+    20% {
+        transform: translate(-10%, 5%);
+    }
+
+    30% {
+        transform: translate(5%, -10%);
+    }
+
+    40% {
+        transform: translate(-5%, 15%);
+    }
+
+    50% {
+        transform: translate(-10%, 5%);
+    }
+
+    60% {
+        transform: translate(15%, 0);
+    }
+
+    70% {
+        transform: translate(0, 10%);
+    }
+
+    80% {
+        transform: translate(-15%, 0);
+    }
+
+    90% {
+        transform: translate(10%, 5%);
+    }
+}
+
+/* Film Scratches */
+.film-scratches {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(90deg, transparent 0%, transparent 48%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 52%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, transparent 48%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.05) 51%, transparent 52%, transparent 100%);
+    background-size: 100px 100%, 100% 150px;
+    opacity: 0.3;
+    z-index: 9;
+    animation: scratchMove 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scratchMove {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+
+    100% {
+        background-position: 100px 0, 0 150px;
+    }
+}
+
+/* Vignette Effect */
+.film-vignette {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 7;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vintage-film-countdown {
+        width: 300px;
+        height: 300px;
+    }
+
+    .film-number-display {
+        font-size: 8rem;
+    }
+
+    .timer-display {
+        font-size: 2.5rem;
+    }
+
+    .timer-inputs input {
+        width: 60px;
+        font-size: 1.5rem;
+    }
+}
